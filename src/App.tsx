@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Supported from './components/Supported'
 import About from './components/About'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <Supported />
       <About />
       <Contact />
+      <Footer />
     </>
   )
 }
