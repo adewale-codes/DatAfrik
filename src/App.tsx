@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Supported from './components/Supported'
 import About from './components/About'
+import Contact from './components/Contact'
 function App() {
 
   return (
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Supported />
       <About />
+      <Contact />
     </>
   )
 }
