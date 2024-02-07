@@ -3,6 +3,7 @@ import './App.css'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Supported from './components/Supported'
+import About from './components/About'
 function App() {
 
   return (
@@ -10,6 +11,7 @@ function App() {
       <Nav />
       <Hero />
       <Supported />
+      <About />
     </>
   )
 }

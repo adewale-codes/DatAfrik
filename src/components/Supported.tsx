@@ -2,7 +2,7 @@ import React from 'react'
 
 const Supported = () => {
   return (
-    <div className='px-5 md:px-24 pt-8 md:pt-52 md:pb-20'>
+    <div className='px-5 md:px-24 py-8 md:py-52 md:pb-20'>
         <div className='flex items-center justify-center'>
             <div className='font-bold text-white'>Supported and backed by:</div>
         </div>
