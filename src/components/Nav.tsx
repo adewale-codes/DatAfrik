@@ -9,7 +9,7 @@ const Nav = () => {
 
   return (
     <nav>
-      <div className="p-5 md:py-5 md:px-20 flex justify-between items-center">
+      <div className="p-5 md:py-10 md:px-24 flex justify-between items-center">
         <Link to="/">
           <p className="text-white font-bold text-xl">JustAnotherUIKit</p>
         </Link>
