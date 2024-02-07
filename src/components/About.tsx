@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 const About = () => {
   return (
-    <div className='p-5 md:px-24 md:py-48'>
+    <div id="aboutSection" className='p-5 md:px-24 md:py-48' >
         <div>
             <div className='text-white font-bold text-2xl md:text-4xl'>About</div>
         </div>

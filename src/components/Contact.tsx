@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 const Contact = () => {
   return (
-    <div className='px-5 md:px-24 md:pt-24 md:pb-36'>
+    <div id="contactSection" className='px-5 md:px-24 md:pt-24 md:pb-36'>
         <div>
             <div className='text-white font-bold text-2xl md:text-4xl'>Contact</div>
         </div>
