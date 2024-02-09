@@ -3,7 +3,7 @@ import { MutableRefObject, forwardRef } from "react";
 interface HomeProps {
     homeRef: MutableRefObject<HTMLElement | null>;
   }
-  const Hero = forwardRef<HTMLDivElement, {}>((props, ref) =>{
+  const Hero = forwardRef<HTMLDivElement, {}>((_, ref) =>{
   return (
     <div ref={ref}>
         <div className='h-[568px] bg-black w-full flex flex-col justify-center items-center'>

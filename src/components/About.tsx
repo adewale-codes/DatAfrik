@@ -3,7 +3,7 @@ import { MutableRefObject, forwardRef } from "react";
 interface AboutProps {
     aboutRef: MutableRefObject<HTMLElement | null>;
   }
-  const About = forwardRef<HTMLDivElement, {}>((props, ref) =>{
+  const About = forwardRef<HTMLDivElement, {}>((_, ref) =>{
   return (
     <div ref={ref} className='p-5 md:px-24 md:py-48' >
         <div>
