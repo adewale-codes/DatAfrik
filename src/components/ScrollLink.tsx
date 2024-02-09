@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 interface ScrollLinkProps {
@@ -10,6 +10,11 @@ interface ScrollLinkProps {
 const ScrollLink: React.FC<ScrollLinkProps> = ({ toRef, children, path }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isActive, setIsActive] = useState<boolean>(location.pathname === path);
+
+  useEffect(() => {
+    setIsActive(location.pathname === path);
+  }, [location.pathname, path]);
 
   const scrollToRef = (ref: React.RefObject<HTMLElement>) => {
     if (ref.current) {
@@ -18,14 +23,13 @@ const ScrollLink: React.FC<ScrollLinkProps> = ({ toRef, children, path }) => {
         behavior: "smooth",
       });
       navigate(path);
+      setIsActive(true);
     }
   };
 
-  const isCurrentPath = location.pathname === path;
-
   return (
     <button
-      className={`text-white ${isCurrentPath ? "font-bold" : "font-extralight"}`}
+      className={`text-white ${isActive || (path === "/home" && location.pathname === "/") ? "font-bold" : "font-extralight"}`}
       onClick={() => scrollToRef(toRef)}
     >
       {children}
