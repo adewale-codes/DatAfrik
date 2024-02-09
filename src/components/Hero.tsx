@@ -1,8 +1,5 @@
-import { MutableRefObject, forwardRef } from "react";
+import { forwardRef } from "react";
 
-interface HomeProps {
-    homeRef: MutableRefObject<HTMLElement | null>;
-  }
   const Hero = forwardRef<HTMLDivElement, {}>((_, ref) =>{
   return (
     <div ref={ref}>

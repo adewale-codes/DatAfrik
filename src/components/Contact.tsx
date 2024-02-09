@@ -1,8 +1,5 @@
-import { MutableRefObject, forwardRef } from "react";
+import { forwardRef } from "react";
 
-interface ContactProps {
-    aboutRef: MutableRefObject<HTMLElement | null>;
-  }
   const Contact = forwardRef<HTMLDivElement, {}>((_, ref) =>{
   return (
     <div ref={ref} className='px-5 md:px-24 md:pt-24 md:pb-36'>

@@ -1,8 +1,5 @@
-import { MutableRefObject, forwardRef } from "react";
+import {  forwardRef } from "react";
 
-interface BlogProps {
-    aboutRef: MutableRefObject<HTMLElement | null>;
-  }
   const Supported = forwardRef<HTMLDivElement, {}>((_, ref) =>{
   return (
     <div ref={ref} className='px-5 md:px-24 py-8 md:py-52 md:pb-20'>
