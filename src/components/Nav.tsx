@@ -1,61 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, MutableRefObject } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ScrollLink from "./ScrollLink";
 
-const Nav: React.FC = () => {
+interface NavProps {
+    homeRef: MutableRefObject<HTMLDivElement | null>;
+    aboutRef: MutableRefObject<HTMLDivElement | null>;
+    contactRef: MutableRefObject<HTMLDivElement | null>;
+    blogRef: MutableRefObject<HTMLDivElement | null>;
+  }
+const Nav: React.FC<NavProps> = ({ homeRef, aboutRef, contactRef, blogRef }) => {
   const location = useLocation();
   const pathname = location.pathname;
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const homeLink = document.getElementById("homeLink");
-    if (homeLink) {
-      homeLink.classList.add("font-bold");
+    const pathsToScrollTo = ['/home', '/about', '/contact', '/blog'];
+    if (pathsToScrollTo.includes(pathname)) {
+      const targetRef =
+        pathname === '/home'
+          ? homeRef
+          : pathname === '/about'
+          ? aboutRef
+          : pathname === '/contact'
+          ? contactRef
+          : pathname === '/blog'
+          ? blogRef
+          : null;
+
+      if (targetRef?.current) {
+        window.scrollTo({
+          top: targetRef.current.offsetTop,
+          behavior: 'smooth',
+        });
+      }
     }
   }, []);
 
-  const scrollToRef = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+
+  
 
   return (
     <nav>
       <div className="p-5 md:py-10 md:px-24 flex justify-between items-center">
-        <Link to="/">
+        <ScrollLink path="/" toRef={homeRef}>
           <p className="text-white font-bold text-xl">JustAnotherUIKit</p>
-        </Link>
+        </ScrollLink>
         <div className="justify-self-start lg:pl-16 hidden lg:flex items-center justify-center gap-2 md:gap-8">
-          <Link
-            id="homeLink"
-            className={`text-white ${pathname === "/" ? "font-bold" : "font-extralight"}`}
-            to="/"
-            onClick={() => scrollToRef('homeSection')}
+          <ScrollLink path="/home"
+            toRef={homeRef} 
           >
             Home
-          </Link>
-          <Link
-            className={`text-white ${pathname === "/about" ? "font-bold" : "font-extralight"}`}
-            to="/about"
-            onClick={() => scrollToRef('aboutSection')}
+          </ScrollLink>
+          <ScrollLink path="/about"
+            toRef={aboutRef}
           >
             About
-          </Link>
-          <Link
-            className={`text-white ${pathname === "/contact" ? "font-bold" : "font-extralight"}`}
-            to="/contact"
-            onClick={() => scrollToRef('contactSection')}
+          </ScrollLink>
+          <ScrollLink
+            toRef={contactRef} path="/contact"
           >
             Contact
-          </Link>
-          <Link
-            className={`text-white ${pathname === "/blog" ? "font-bold" : "font-extralight"}`}
-            to="/blog"
-            onClick={() => scrollToRef('blogSection')}
+          </ScrollLink>
+          <ScrollLink
+            toRef={blogRef} path="/blog"
           >
             Blog
-          </Link>
+          </ScrollLink>
         </div>
         <div className="lg:hidden flex justify-self-end cursor-pointer">
           {isOpen ? (
@@ -79,35 +89,26 @@ const Nav: React.FC = () => {
         } lg:relative lg:translate-x-0 lg:justify-self-start lg:pl-32 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:md:gap-8 lg:bg-transparent`}
       >
         <div className="flex flex-col space-y-5 ml-5">
-          <Link
-            id="homeLinkMobile"
-            to="/"
-            className={`text-white ${pathname === "/" ? "font-bold" : "font-extralight"}`}
-            onClick={() => scrollToRef('homeSection')}
+          <ScrollLink
+            toRef={homeRef} path="/home"
           >
             Home
-          </Link>
-          <Link
-            to="/about"
-            className={`text-white ${pathname === "/about" ? "font-bold" : "font-extralight"}`}
-            onClick={() => scrollToRef('aboutSection')}
+          </ScrollLink>
+          <ScrollLink
+            toRef={aboutRef} path="/about"
           >
             About
-          </Link>
-          <Link
-            to="/contact"
-            className={`text-white ${pathname === "/contact" ? "font-bold" : "font-extralight"}`}
-            onClick={() => scrollToRef('contactSection')}
+          </ScrollLink>
+          <ScrollLink
+            toRef={contactRef} path="/contact"
           >
             Contact
-          </Link>
-          <Link
-            to="/blog"
-            className={`text-white ${pathname === "/blog" ? "font-bold" : "font-extralight"}`}
-            onClick={() => scrollToRef('blogSection')}
+          </ScrollLink>
+          <ScrollLink
+            toRef={blogRef} path="/blog"
           >
             Blog
-          </Link>
+          </ScrollLink>
         </div>
       </div>
     </nav>

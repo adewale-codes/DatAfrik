@@ -1,8 +1,11 @@
+import React, { useState, useEffect, MutableRefObject, forwardRef } from "react";
 
-
-const Hero = () => {
+interface HomeProps {
+    homeRef: MutableRefObject<HTMLElement | null>;
+  }
+  const Hero = forwardRef<HTMLDivElement, {}>((props, ref) =>{
   return (
-    <div id="homeSection">
+    <div ref={ref}>
         <div className='h-[568px] bg-black w-full flex flex-col justify-center items-center'>
             <div className='flex items-center justify-center'>
                 <div className='p-5 mt-6 md:max-w-[70%] max-w-[90%] font-extrabold text-center text-white font-bold text-3xl md:text-5xl'>It doesn’t matter what <span className='text-primary-700'>JS Framework</span> you work with.</div>
@@ -31,6 +34,6 @@ const Hero = () => {
         </div>
     </div>
   )
-}
+})
 
 export default Hero

@@ -1,8 +1,11 @@
+import React, { useState, useEffect, MutableRefObject, forwardRef } from "react";
 
-
-const About = () => {
+interface AboutProps {
+    aboutRef: MutableRefObject<HTMLElement | null>;
+  }
+  const About = forwardRef<HTMLDivElement, {}>((props, ref) =>{
   return (
-    <div id="aboutSection" className='p-5 md:px-24 md:py-48' >
+    <div ref={ref} className='p-5 md:px-24 md:py-48' >
         <div>
             <div className='text-white font-bold text-2xl md:text-4xl'>About</div>
         </div>
@@ -20,6 +23,6 @@ const About = () => {
         </div>
     </div>
   )
-}
+})
 
 export default About

@@ -1,8 +1,11 @@
+import React, { useState, useEffect, MutableRefObject, forwardRef } from "react";
 
-
-const Contact = () => {
+interface ContactProps {
+    aboutRef: MutableRefObject<HTMLElement | null>;
+  }
+  const Contact = forwardRef<HTMLDivElement, {}>((props, ref) =>{
   return (
-    <div id="contactSection" className='px-5 md:px-24 md:pt-24 md:pb-36'>
+    <div ref={ref} className='px-5 md:px-24 md:pt-24 md:pb-36'>
         <div>
             <div className='text-white font-bold text-2xl md:text-4xl'>Contact</div>
         </div>
@@ -33,6 +36,6 @@ const Contact = () => {
         </div>
     </div>
   )
-}
+})
 
 export default Contact

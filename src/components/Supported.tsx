@@ -1,8 +1,11 @@
+import React, { useState, useEffect, MutableRefObject, forwardRef } from "react";
 
-
-const Supported = () => {
+interface BlogProps {
+    aboutRef: MutableRefObject<HTMLElement | null>;
+  }
+  const Supported = forwardRef<HTMLDivElement, {}>((props, ref) =>{
   return (
-    <div id="blogSection" className='px-5 md:px-24 py-8 md:py-52 md:pb-20'>
+    <div ref={ref} className='px-5 md:px-24 py-8 md:py-52 md:pb-20'>
         <div className='flex items-center justify-center'>
             <div className='font-bold text-white'>Supported and backed by:</div>
         </div>
@@ -64,6 +67,6 @@ const Supported = () => {
         </div>
     </div>
   )
-}
+})
 
 export default Supported
