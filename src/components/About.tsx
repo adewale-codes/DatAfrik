@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MutableRefObject, forwardRef } from "react";
+import { MutableRefObject, forwardRef } from "react";
 
 interface AboutProps {
     aboutRef: MutableRefObject<HTMLElement | null>;

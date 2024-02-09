@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MutableRefObject, forwardRef } from "react";
+import { MutableRefObject, forwardRef } from "react";
 
 interface HomeProps {
     homeRef: MutableRefObject<HTMLElement | null>;
@@ -8,7 +8,7 @@ interface HomeProps {
     <div ref={ref}>
         <div className='h-[568px] bg-black w-full flex flex-col justify-center items-center'>
             <div className='flex items-center justify-center'>
-                <div className='p-5 mt-6 md:max-w-[70%] max-w-[90%] font-extrabold text-center text-white font-bold text-3xl md:text-5xl'>It doesn’t matter what <span className='text-primary-700'>JS Framework</span> you work with.</div>
+                <div className='p-5 mt-6 md:max-w-[70%] max-w-[90%] font-extrabold text-center text-white font-bold text-3xl md:text-5xl'>It doesn&apos;t matter what <span className='text-primary-700'>JS Framework</span> you work with.</div>
             </div>
             <div>
                 <div className='text-xl md:text-2xl text-center text-white'>Our boilerplates works with it <span className='text-secondary-400 font-bold'>out-of-the-box</span>. </div>
